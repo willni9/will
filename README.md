@@ -1,13 +1,10 @@
 # CS 100 Programming Project 
-# Project Information:
-## CS100 RShell
-## Jianbin Li, 862074304
-## Weier Ni,   862019075
+# Project Information: CS100 RShell, Jianbin Li, 862074304  Weier Ni,   862019075
 
 # Introduction:
 For this program, it should be able to output the command prompt properly, whichis followed by a short description. the project should be able to run the command( fork, execvp, waitpid) properly, project should be able to connect multiple commends by using connectors(||,&&,;) we will be using composite design pattern on this project to combine between unit tests and classes.
 # Diagram:
-    ![UML] (https://github.com/cs100/spring_2019_assignment_cs100_w_j/blob/master/images/Design%20document.png)
+    ![UML] (https://github.com/cs100/spring_2019_assignment_cs100_w_j/blob/master/images/Design%20document.png?raw=true)
 
 
 # classes:
@@ -28,26 +25,24 @@ For this program, it should be able to output the command prompt properly, which
 
 # Prototypes/Reasearch: 
 * Execvp
- 
-    int main(int argc, char * argv[]){
 
+	 int main(int argc, char * argv[]){
 	char * ls_args[] = { "ls" , "-l", NULL};
-
 	execvp(   ls_args[0],     ls_args);
 
 	perror("execv");
 	return 2;
-}
+	}	
 * we will test this function, if this function searching a correct executable file or not, and we will test this commend is followed by multiple other commend, to test if it works properly or not. 
 
 
 * Fork
 
-   int main(){
+   	int main(){
 	pid_t c_pid;
 	c_pid = fork();
 	if(c_pid == 0){
-		printf("Child: %d", c_pid);
+	printf("Child: %d", c_pid);
 	}else if(c_pid > 0){
 		printf("Parent: %d", c_pid);
 	}else{
@@ -55,11 +50,11 @@ For this program, it should be able to output the command prompt properly, which
 		_exit(2);
 	}
 	return 0;
-}
+	}	
 * we will test function if this function returns properly or not, if the process returns 0, is is in child process, if it returns greater than 0, then it is in parent process, if it returns -1, then it is fail. and we create a wait function to test if it is in child process or turn in to zombie. Notes:cannot write fork function into loops
 * Pid
 
-    int main(){
+    	int main(){
 	pid_t c_pid;
 	pid = getpid();
 	ppid = getppid();
@@ -68,7 +63,7 @@ For this program, it should be able to output the command prompt properly, which
 	printf("Parent's pid is	%d", ppid);
 	
 	return 0;
-}
+	}
 * if function tests pass, waitpid returns the process ID of the terminated process whose status was reported. if unsuccessful, a -1 is returned.
 # Development and Testing Roadmap
  1. connector class implementation, each function will be separated, and test separatedly, then test after comine them into on single class. 
