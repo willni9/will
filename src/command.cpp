@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <sstream>
 #include <sys/wait.h>
 #include <signal.h>
 #include <stdlib.h>
@@ -16,6 +17,12 @@ class Base;
 class Command;
 
 bool Command::execute(){
+	stringstream ss<cmd>;
+	
+	if(cmd == "exit"){
+	exit(0);
+}
+
 	int status;
 	pid_t pid  = fork();
 	
