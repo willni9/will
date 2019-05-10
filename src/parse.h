@@ -11,10 +11,11 @@ class Parse{
 	protected:
 		Base *root;
 		string opcmd;
-		vector<string> avec;
+
 	public:
 		Parse():root(0){}
-		Parse(string &opcmd): opcmd(opcmd){}
+		Parse(string &opcmd):opcmd(opcmd){}
+		void opening();
 		Base *parsing(string &);
 };
 
