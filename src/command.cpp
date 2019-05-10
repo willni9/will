@@ -17,20 +17,20 @@ class Command;
 
 bool Command::execute(){
 	int status;
-	pid_t adjust  = fork();
+	pid_t pid  = fork();
 	
-	if(adjust == -1){
+	if(pid == -1){
 		perror("fork");
 		exit(1);
 	}
 
-	if(adjust == 0){
-		perror("exe");
+	if(pid == 0){
+		perror("execvp");
 		exit(1);
 	}
 
-	if(adjust > 0){
-		waitpid(adjust, &status, 0);
+	if(pid  > 0){
+		waitpid(pid, &status, 0);
 		ifWEITSTATUS(status) > 0){
 			return false;
 		}else if(WEXITSTATUS(status) == 1){
