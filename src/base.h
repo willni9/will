@@ -14,3 +14,5 @@ class Base{
 		virtual bool execute() = 0;
 		virtual string get_commit() = 0;
 }
+
+#endif
