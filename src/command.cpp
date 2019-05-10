@@ -10,11 +10,13 @@
 #include <stdlib.h>
 #include "base.h"
 #include "command.h"
+#include "parse.h"
 
 using namespace std;
 
 class Base;
 class Command;
+class Parse;
 
 bool Command::execute(){
 	stringstream ss<cmd>;
@@ -30,7 +32,7 @@ bool Command::execute(){
 
 	if(cmd == "exit"){
 	exit(0);
-}
+	} 		
 
 	int status;
 	pid_t pid  = fork();
