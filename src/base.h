@@ -12,7 +12,7 @@ class Base{
 		Base(){};
 		
 		virtual bool execute() = 0;
-		virtual string get_commit() = 0;
+		virtual string get_cmd() = 0;
 }
 
 #endif
