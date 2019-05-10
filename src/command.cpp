@@ -18,7 +18,16 @@ class Command;
 
 bool Command::execute(){
 	stringstream ss<cmd>;
+	string temp;
+	vector<char*> wvec;
 	
+	char* input;
+	input = strtok((char*)this->cmd.c_str(), "")
+	while (input != NULL){
+		wvec.push_back(input);
+		input = strtok(NULL, " ");
+	}
+
 	if(cmd == "exit"){
 	exit(0);
 }
