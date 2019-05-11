@@ -21,18 +21,24 @@ class Parse;
 bool Command::execute(){
 	stringstream ss<cmd>;
 	string temp;
-	vector<char*> wvec;
-	
-	char* input;
-	input = strtok((char*)this->cmd.c_str(), "")
-	while (input != NULL){
-		wvec.push_back(input);
-		input = strtok(NULL, " ");
-	}
-
+  vector<char*>word;
+ 
 	if(cmd == "exit"){
 	exit(0);
-	} 		
+	}
+  
+  char *input;
+  input = strtok((char *)this->cmd(), " ");
+  while(input != NULL){
+    word.push_back(input);
+    input = strtok(NULL, " ");
+  }
+  
+  char **arg = new char *[word.size()+1];
+  
+  for(unsigned i = 0; i < word.size(); ++i]{
+    arg[i]=word[i];
+  } 		
 
 	int status;
 	pid_t pid  = fork();
@@ -57,5 +63,5 @@ bool Command::execute(){
 			return true;
 		}
 	}
-	return false:
+	return false;
 }

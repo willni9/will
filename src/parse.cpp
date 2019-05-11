@@ -12,7 +12,7 @@ using namespace std;
 class Base;
 class Command;
 
-class Parse::opening(){
+class Parse::operationening(){
 	root->execute;
 }
 
@@ -20,11 +20,11 @@ Base *Parse::parsing(string &str){
 	string temp = " ";
   string cmd = "";
   stack<string> counter;
-  stack<string> op;
+  stack<string> operationeration;
 
 	bool cmd = false;	
 	bool quote = false;
-  bool paren = false;
+  bool bracket = false;
  
   for(unsigned i = 0; i < str.size(); ++i) {
     if(str.at(i) == '\"') {
@@ -52,13 +52,13 @@ Base *Parse::parsing(string &str){
   }
   
   if(temp == "("){
-    op.push(temp);
+    operationeration.push(temp);
   }else if(temp.at(0) == "("){
     string paren = "(";
     int index = 0;
     for(unsigned i = 0; i < temp.size; ++i){
       if(temp.at(i) == "("){
-      op.push(paran);
+      operation.push(paran);
       }else{
       index = i;
       break;
@@ -81,5 +81,72 @@ Base *Parse::parsing(string &str){
   }else{
     cmd = cmd + " " + temp.substr(0, temp.find(')'));
   }
-      
+  
+        while (!operation.empty() && !pcounter.empty() && (operation.toperation() != "(")) {
+        if (command != "") {
+          argVec.push_back(command);
+          command = "";
+        }
+
+        argVec.push_back(operation.toperation());
+        operation.poperation();
+
+        if (operation.toperation() == "(" && count != 1) {
+          operation.poperation();
+          pcounter.poperation();
+          count--;
+        }
+      }
+
+      if ((operation.toperation() == "(") && !(operation.empty()) && !pcounter.empty()) {
+        operation.poperation();
+        pcounter.poperation();
+
+        if (!(operation.empty())) {
+        }
+      }
+    }
+
+    if (temp.at(0) != '(' && temp.at(temp.size() - 1) != ')') {
+        if (quote) {
+          if (temp.at(0) == '\"') {
+            temp = temp.substr(1, temp.size() - 1);
+          }
+          command = command + " " + temp;
+
+          if (command.find('\"') != string::npos) {
+            command = command.substr(0, command.find('\"'));
+            quote = false;
+          }
+        } else {
+          if (command == "") {
+            command = command + temp;
+
+          } else {
+            command = command + " " + temp;
+          }
+        }
+      }
+    }
+  }
+
+  if (!bracket) {
+    argVec.push_back(command);
+    command = "";
+  }
+
+  if (command != "") {
+    argVec.push_back(command);
+    command = "";
+  }
+
+  while (!(operation.empty())) {
+    if (operation.toperation() != "(") {
+      argVec.push_back(operation.toperation());
+      operation.poperation();
+    } else {
+      operation.poperation();
+    }
+  }
+  
 }

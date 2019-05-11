@@ -10,7 +10,7 @@ class Command:public Base{
 		string cmd;
 	public:
 		Command(){};
-		Command(string &cmd):cmd(cmd){};
+		Command(string &cmd):cmd(cmd){}
 		virtual bool execute();
 		string get_cmd(){
 			return cmd;

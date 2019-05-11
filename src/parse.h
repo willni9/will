@@ -14,7 +14,7 @@ class Parse{
 	protected:
 		Base *root;
 		string opcmd;
-    vector<string> argVec;
+    vector<string> arg;
 
 
 	public:
