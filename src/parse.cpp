@@ -4,13 +4,13 @@
 #include <string>
 #include <vector>
 #include "base.h"
-#include "command.h"
+#include "cmd.h"
 #include "parse.h"
 
 using namespace std;
 
 class Base;
-class Command;
+class cmd;
 
 class Parse::operationening(){
 	root->execute;
@@ -83,12 +83,12 @@ Base *Parse::parsing(string &str){
   }
   
         while (!operation.empty() && !pcounter.empty() && (operation.toperation() != "(")) {
-        if (command != "") {
-          argVec.push_back(command);
-          command = "";
+        if (cmd != "") {
+          arg.push_back(cmd);
+          cmd = "";
         }
 
-        argVec.push_back(operation.toperation());
+        arg.push_back(operation.toperation());
         operation.poperation();
 
         if (operation.toperation() == "(" && count != 1) {
@@ -112,18 +112,18 @@ Base *Parse::parsing(string &str){
           if (temp.at(0) == '\"') {
             temp = temp.substr(1, temp.size() - 1);
           }
-          command = command + " " + temp;
+          cmd = cmd + " " + temp;
 
-          if (command.find('\"') != string::npos) {
-            command = command.substr(0, command.find('\"'));
+          if (cmd.find('\"') != string::npos) {
+            cmd = cmd.substr(0, cmd.find('\"'));
             quote = false;
           }
         } else {
-          if (command == "") {
-            command = command + temp;
+          if (cmd == "") {
+            cmd = cmd + temp;
 
           } else {
-            command = command + " " + temp;
+            cmd = cmd + " " + temp;
           }
         }
       }
@@ -131,18 +131,18 @@ Base *Parse::parsing(string &str){
   }
 
   if (!bracket) {
-    argVec.push_back(command);
-    command = "";
+    arg.push_back(cmd);
+    cmd = "";
   }
 
-  if (command != "") {
-    argVec.push_back(command);
-    command = "";
+  if (cmd != "") {
+    arg.push_back(cmd);
+    cmd = "";
   }
 
   while (!(operation.empty())) {
     if (operation.toperation() != "(") {
-      argVec.push_back(operation.toperation());
+      arg.push_back(operation.toperation());
       operation.poperation();
     } else {
       operation.poperation();
