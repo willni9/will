@@ -1,5 +1,8 @@
 #ifndef PARSE_H
 #define PARSE_H
+#include <iostream>
+#include <sstream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -11,11 +14,13 @@ class Parse{
 	protected:
 		Base *root;
 		string opcmd;
+    vector<string> argVec;
+
 
 	public:
 		Parse():root(0){}
 		Parse(string &opcmd):opcmd(opcmd){}
-		void opening();
+		void open();
 		Base *parsing(string &);
 };
 
