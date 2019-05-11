@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -19,13 +20,13 @@ class Command;
 class Parse;
 
 bool Command::execute(){
-	stringstream ss<cmd>;
-	string temp;
+  stringstream ss<cmd>;
+  string temp;
   vector<char*>word;
  
-	if(cmd == "exit"){
-	exit(0);
-	}
+  if(cmd == "exit"){
+  exit(0);
+  }
   
   char *input;
   input = strtok((char *)this->cmd(), " ");
@@ -38,30 +39,32 @@ bool Command::execute(){
   
   for(unsigned i = 0; i < word.size(); ++i]{
     arg[i]=word[i];
-  } 		
-
-	int status;
-	pid_t pid  = fork();
+  }
+   		
+  int status;
+  pid_t pid = fork();
 	
-	if(pid == -1){
-		perror("fork");
-		exit(1);
-	}
+  if(pid == -1){
+    perror("fork");
+    exit(1);
+  }
 
-	if(pid == 0){
-		perror("execvp");
-		exit(1);
-	}
+  if(pid == 0){
+    if(execvp(arg[0], arg) == -1) {
+      perror("execvp");
+      exit(1);
+    }
+  }
 
-	if(pid  > 0){
-		waitpid(pid, &status, 0);
-		ifWEITSTATUS(status) > 0){
-			return false;
-		}else if(WEXITSTATUS(status) == 1){
-			return false;
-		}else if(WEXITSTUTAS(status) == 0){
-			return true;
-		}
-	}
-	return false;
+  if(pid  > 0){
+    waitpid(pid, &status, 0);
+    ifWEITSTATUS(status) > 0){
+    	return false;
+    }else if(WEXITSTATUS(status) == 1){
+      return false;
+    }else if(WEXITSTUTAS(status) == 0){
+      return true;
+    }
+  }
+  return false;
 }
