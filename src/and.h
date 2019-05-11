@@ -5,17 +5,23 @@
 using namespace std;
 class And : public Connector{
 And(){}
-bool isConnector(){
-return true;
-}
-bool execute(){
-if(l->execute()){
-return r->execute()
-}
-return false;
+And:And(Base*left, Base* right): Connector(l,r){}
+
+bool isConnector()
+{
+	return true;
 }
 
-string get_cmd(){
-return "";}
+bool execute()
+{
+	if(left->execute()){
+	return right->execute()
+}
+	return false;
+}
+
+	string get_cmd()
+{
+	return "";}
 
 #endif

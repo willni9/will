@@ -4,16 +4,27 @@
 #unclude "connector.h"
 using namespace srd;
 
-class Semicolon :public Connector{
-        public:
-        Semicolon(){}
-bool isConnector(){
-return true;}
+class Semicolon :public Connector
+{
+ public:
+Semicolon()
+{}
+Semicolon::Semicolon(Base*left, Base*right):Connector(left,right)
+{}
 
-bool execute(){
-l->execute();
-r->execute();
+bool isConnector()
+{
+	return true;}
+
+bool execute()
+{
+	left->execute();
+	return right->execute();
 }
+
 string get_cmd()
-{ return "";}
-#endif
+{	
+ 	return "";
+}
+#
+endif

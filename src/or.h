@@ -4,15 +4,24 @@
 using namespace std;
 class Or: public Connect{
 public:
-Or(){}
-bool isConnecotr(){
+
+Or()
+{}
+Or::Or(Base* left,base* right): Connector(left,right)
+{}
+
+bool isConnecotr()
+{
 return true;
 }
-bool execute(){
-if(!(l->execute()){
-return r->execute();
+bool execute()
+{
+if(!(left->execute())
+{
+return right->execute();
 }
-string get_cmd(){
+string get_cmd()
+{
 return ""}
 
-#endif
+#ndif

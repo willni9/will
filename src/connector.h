@@ -8,12 +8,12 @@ using namespace std;
 class Connector : public Base()
 {
 protected:
- Base* l; 
- Base* r;
+ Base* left; 
+ Base* right;
 
 public:
-
-nnector(): l(0), r(0){};
+Connector();
+Connector(Base* left, Base*right);
 
 virtual bool execute() = 0;
 virtual string get_cmd() = 0;
