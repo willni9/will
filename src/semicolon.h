@@ -26,5 +26,5 @@ string get_cmd()
 {	
  	return "";
 }
-}
+};
 #endif

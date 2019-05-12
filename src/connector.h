@@ -18,6 +18,6 @@ Connector(Base* left, Base*right);
 virtual bool execute() = 0;
 virtual string get_cmd() = 0;
 virtual bool IsConnector() = 0;
-}
+};
 #endif
 
