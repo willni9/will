@@ -1,7 +1,7 @@
 #ifndef SEMICOLON_H
 #define SEMICOLON_H
 
-#unclude "connector.h"
+#include "connector.h"
 using namespace srd;
 
 class Semicolon :public Connector
@@ -26,5 +26,5 @@ string get_cmd()
 {	
  	return "";
 }
-#
-endif
+}
+#endif

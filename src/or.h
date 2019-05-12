@@ -2,7 +2,7 @@
 #define OR_H
 #include "connector.h"
 using namespace std;
-class Or: public Connect{
+class Or: public Connector{
 public:
 
 Or()
@@ -23,5 +23,6 @@ return right->execute();
 string get_cmd()
 {
 return ""}
-
-#ndif
+}
+}
+#endif

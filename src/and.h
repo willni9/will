@@ -5,7 +5,7 @@
 using namespace std;
 class And : public Connector{
 And(){}
-And:And(Base*left, Base* right): Connector(l,r){}
+And:And(Base*left, Base* right): Connector(left,right){}
 
 bool isConnector()
 {
@@ -23,5 +23,5 @@ bool execute()
 	string get_cmd()
 {
 	return "";}
-
+}
 #endif
