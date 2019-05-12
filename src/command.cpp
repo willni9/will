@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -12,6 +11,10 @@
 #include "base.h"
 #include "command.h"
 #include "parse.h"
+#include "add.h"
+#include "or.h"
+#include "semicolon.h"
+#include "connector.h"
 
 using namespace std;
 

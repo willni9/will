@@ -4,8 +4,12 @@
 #include <string>
 #include <vector>
 #include "base.h"
-#include "cmd.h"
+#include "command.h"
 #include "parse.h"
+#include "or.h"
+#include "add.h"
+#include "semicolon.h"
+#include "connector.h"
 
 using namespace std;
 
