@@ -7,6 +7,24 @@
 #include "../src/semicolon.h"
 #include "../src/base.h"
 
+TEST(TestCommand, LsCommand) {
+  string s1 = "ls -a";
+  Command *test1 = new Command(s1);
+  EXPECT_TRUE(test1->execute());
+}
+
+TEST(TestCommand, ExitCommand) {
+  string s1 = "exit";
+  Command *test1 = new Command(s1);
+  EXPECT_TRUE(test1->execute());
+}
+
+TEST(TestCommand, SimpleCommand) {
+  string testing = "test -d src";  
+  Command *test = new Command(testing);
+  EXPECT_TRUE(test->execute());
+}
+
 TEST(Connector_tests, And_correct1)
 {
 	Base* left = new Command("ls -a");
