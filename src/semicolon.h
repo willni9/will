@@ -1,20 +1,15 @@
 #ifndef SEMICOLON_H
 #define SEMICOLON_H
-
+#include "base.h"
 #include "connector.h"
-using namespace srd;
+using namespace std;
+
 
 class Semicolon :public Connector
 {
- public:
-Semicolon()
-{}
-Semicolon::Semicolon(Base*left, Base*right):Connector(left,right)
-{}
-
-bool isConnector()
-{
-	return true;}
+public:
+Semicolon(){}
+Semicolon(Base*left, Base*right):Connector(left,right){}
 
 bool execute()
 {

@@ -1,11 +1,11 @@
 #ifndef CONNECTOR_H
 #define CONNECTOR_H
-
+#include "command.h"
 #include "base.h"
 
 using namespace std;
 
-class Connector : public Base()
+class Connector : public Base
 {
 protected:
  Base* left; 
@@ -13,11 +13,10 @@ protected:
 
 public:
 Connector();
-Connector(Base* left, Base*right);
+Connector(Base* left, Base*right):left(left), right(right){}
 
 virtual bool execute() = 0;
 virtual string get_cmd() = 0;
-virtual bool IsConnector() = 0;
 };
 #endif
 
