@@ -1,29 +1,10 @@
 #include "gtest/gtest.h"
 #include "../src/connector.h"
-#include "../src/command.h"
-#include "../src/parse.h"
 #include "../src/and.h"
 #include "../src/or.h"
 #include "../src/semicolon.h"
 #include "../src/base.h"
-
-TEST(TestCommand, LsCommand) {
-  string s1 = "ls -a";
-  Command *test1 = new Command(s1);
-  EXPECT_TRUE(test1->execute());
-}
-
-TEST(TestCommand, ExitCommand) {
-  string s1 = "exit";
-  Command *test1 = new Command(s1);
-  EXPECT_TRUE(test1->execute());
-}
-
-TEST(TestCommand, SimpleCommand) {
-  string testing = "test -d src";  
-  Command *test = new Command(testing);
-  EXPECT_TRUE(test->execute());
-}
+#include "../src/command.h"
 
 TEST(Connector_tests, And_correct1)
 {
@@ -71,6 +52,24 @@ TEST(Connector_tests,Semicolon_correct2)
 	Base* right = new Command("echo fast");
 	Base* test = new Semicolon(left,right);
 	EXPECT_EQ(1,test->execute());
+}
+
+TEST(TestCommand, LsCommand) {
+  string s1 = "ls -a";
+  Command *test1 = new Command(s1);
+  EXPECT_EQ(1,test1->execute());
+}
+
+TEST(TestCommand, SimpleCommand) {
+  string testing = "test -d src";  
+  Command *test = new Command(testing);
+  EXPECT_EQ(1,test->execute());
+}
+
+TEST(TestCommand, ExitCommand) {
+  string s1 = "exit";
+  Command *test1 = new Command(s1);
+  EXPECT_EQ(1,test1->execute());
 }
 
 int main ( int argc, char ** argv)
