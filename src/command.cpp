@@ -1,18 +1,19 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <unistd.h>
 #include <fstream>
 #include <iostream>
-#include <string>
+#include <queue>
 #include <sstream>
-#include <sys/wait.h>
-#include <signal.h>
-#include <stdlib.h>
+#include <string>
 #include "base.h"
 #include "command.h"
-#include "parse.h"
-#include "add.h"
 #include "or.h"
+#include "and.h"
 #include "semicolon.h"
 #include "connector.h"
 
@@ -23,7 +24,8 @@ class Command;
 class Parse;
 
 bool Command::execute(){
-  stringstream ss<cmd>;
+  //stringstream ss<cmd>;
+  //struct stat info;
   string temp;
   vector<char*>word;
  
@@ -32,7 +34,10 @@ bool Command::execute(){
   }
   
   char *input;
-  input = strtok((char *)this->cmd(), " ");
+  input = strtok((char *)this->cmd.c_str(), " ");
+  //ss.tok(cmd); => get for_loop
+  
+  //if?while?
   while(input != NULL){
     word.push_back(input);
     input = strtok(NULL, " ");
@@ -40,11 +45,15 @@ bool Command::execute(){
   
   char **arg = new char *[word.size()+1];
   
-  for(unsigned i = 0; i < word.size(); ++i]{
+  unsigned int size = word.size();
+  
+  for(unsigned int i = 0; i < size; ++i) {
     arg[i]=word[i];
   }
-   		
-  int status;
+   
+  arg[size] = NULL;
+  		
+  int status = -1;
   pid_t pid = fork();
 	
   if(pid == -1){
@@ -53,7 +62,7 @@ bool Command::execute(){
   }
 
   if(pid == 0){
-    if(execvp(arg[0], arg) == -1) {
+    if( execvp(arg[0], arg) ) {
       perror("execvp");
       exit(1);
     }
@@ -61,11 +70,11 @@ bool Command::execute(){
 
   if(pid  > 0){
     waitpid(pid, &status, 0);
-    ifWEITSTATUS(status) > 0){
+    if(status > 0){
     	return false;
     }else if(WEXITSTATUS(status) == 1){
       return false;
-    }else if(WEXITSTUTAS(status) == 0){
+    }else if(WEXITSTATUS(status) == 0){
       return true;
     }
   }

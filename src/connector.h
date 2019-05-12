@@ -1,7 +1,7 @@
 #ifndef CONNECTOR_H
 #define CONNECTOR_H
-#include "command.h"
 #include "base.h"
+#include "command.h"
 
 using namespace std;
 

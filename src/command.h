@@ -1,5 +1,5 @@
-#ifndef COMMAND_H
-#define COMMAND_H
+#ifndef _COMMAND_H_
+#define _COMMAND_H_
 #include <string>
 #include "base.h"
 
@@ -11,9 +11,7 @@ class Command : public Base {
 	public:
 		Command(){}
 		Command(string cmd) : cmd(cmd) {}
-		bool execute(){
-			return true;
-		}
+	  bool execute();
 		string get_cmd(){
 			return cmd;
 		}
