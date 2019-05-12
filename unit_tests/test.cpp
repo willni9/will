@@ -1,5 +1,11 @@
 #include "gtest/gtest.h"
 #include "connector.h"
+#include "command.h"
+#include " parse.h"
+#include "and.h'
+#include "or.h"
+#include "semicolonm.h"
+#include "base.h"
 
 int main ( int argc, char ** argv)
 {
