@@ -10,6 +10,8 @@ For this program, it should be able to output the command prompt properly, which
 # classes:
 * main class
  * we will compute the test, then execute an fully functionality example, combine classes in the main and then execute an lab.exe file
+*base class
+ *this is a virtual class for our project. 
 * commend class
  * this class, we will focus on the three commends to execute files
   * subclass 1: execvp(), duplicate the actions of the shell in searching for an executable file if the specific filename does not contain slash character.
@@ -22,7 +24,8 @@ For this program, it should be able to output the command prompt properly, which
   * subclass 3: semiclone: no matter the first commend is executed or not, the next commend will always be executed. 
 * unit test class 
  * this class is for test each function works properly or not, and also test after these classes interact correctly or not.
-
+*  Rshell class
+ * this class mainly to detect the connector and then serparte mult commands and connectors, then push into a tree, then we build a parsing function to split the each command into char, then to check each character property. 
 # Prototypes/Reasearch: 
 * Execvp
 ```c++
@@ -84,5 +87,5 @@ For this program, it should be able to output the command prompt properly, which
   3. waitpid(), ensure function called and execute file
 	1. includes unit test function 
  3.  unit test class implementation, test each function works properly. combine all the unit test, and put into a class called unit test class, each time when we test a function, and connect function to this class. 
-
+ 3. rshell class implementation, we receive the command from userinput, first to check if there is any connector in the string. if there is a connector in the string, means there is another command, then we build a tree to put commands in the leaf, adn connector in the parent, when we execute, if will execute both commands. we also build a help function to achieve our goal. 
 
