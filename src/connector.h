@@ -7,12 +7,10 @@ using namespace std;
 
 class Connector : public Base
 {
-protected:
- Base* left; 
- Base* right;
-
 public:
-Connector();
+Base* left; 
+Base* right;
+Connector(){}
 Connector(Base* left, Base*right):left(left), right(right){}
 
 virtual bool execute() = 0;

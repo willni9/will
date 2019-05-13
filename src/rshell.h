@@ -13,24 +13,26 @@
 using namespace std;
 
 class rShell{
-  protected:
+  public:
     Base *root;
     vector<string> arg;
-
-	public:
     std::string theinput;
-		rShell(){}
-		Base* Tree();
-		std::string get_vect(int);
-		void Display(); 
+    rShell(){}
+    Base* Tree();
+    std::string get_vect(int);
+    void Display(); 
     void run_execute();
     void the_input();
-    void run_tree();
+   // void run_tree();
     void note();
     void parse();
     void get_command();
     void input_preparation();
-    void set_input(std::string);  
+    void set_input(std::string);
+    void build_tree_helper();
+    Base* build_tree();
+    int find_connector(string input);
+    bool is_connector(string input);
   private:
      std::string temp;
      int List;

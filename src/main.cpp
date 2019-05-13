@@ -5,26 +5,23 @@
 
 using namespace std;
 
-int main(){
-//  rShell rShell;
-  while(true){
-  cout << "$ ";
-     
-  rShell rShell;
-/*  while(theinput != "exit")
-  {
-        rShell.Display();
-        getline(cin,theinput);
-        cout<<endl;
-        if(theinput =="exit")
-    {
-        break;
-    }*/
-//        rShell.Display();
-        rShell.the_input();
-        rShell.parse();
-        rShell.run_execute();
- //       rShell.Tree();
-  }  
-        return 0 ;
+int main()
+{
+  	rShell rShell;
+ 	// while(true){
+ 	// cout << "$ ";
+ 	string theinput;
+	while(theinput != "exit")
+	{	
+        	rShell.Display();
+        	rShell.the_input();
+        	if(theinput =="exit")
+    		{
+        		break;
+    		}
+        	rShell.parse();
+       		rShell.build_tree_helper();
+        	rShell.run_execute();
+  	}  
+	return 0 ;
 }
