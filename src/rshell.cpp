@@ -52,9 +52,7 @@ void rShell::parse()
    int index = find_connector(rest_input);
    string connector = "";
  
-   while (index != -1) {
-	cout << "in while" << endl;
-	cout << "index: " << index << endl; 
+   while (index != -1) { 
 	arg.push_back(rest_input.substr(0,index));
 	rest_input = rest_input.substr(index);
 	if (rest_input[0] == ';')
