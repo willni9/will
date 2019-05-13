@@ -92,38 +92,7 @@ void rShell::parse()
    }
    arg = vec1;
    reverse(arg.begin(), arg.end());
-   /*
-   for (size_t i = 0; i < theinput.size(); i++) {
-      if (theinput[i] == '"') {
-         while (true) {
-            if (theinput[++i] == '"') {
-               if (i == theinput.size() - 1) {
-                  arg.push_back(temp);
-                  return;
-               }
-               i++;
-               break;
-            }
-            temp += theinput[i];
-         }
-      }
-        
-      if (theinput[i] != ' ') {
-         temp += theinput[i];
-      }
-      else {
-         arg.push_back(temp);
-         temp = "";
-      }
-        
-      if (i == theinput.size() - 1) {
-         arg.push_back(temp);
-      }
-   }
-   */ 
 }
-
-
 Base* rShell::build_tree()
 {
 	string temp = arg.back();
@@ -209,31 +178,12 @@ void rShell::note()
 }
 
 
-//maybe can use for next?
 Base* rShell::Tree(){
 	int index = 0;
 	root = new Command(arg[0]);
 }
 
 
-
-/*Base* rShell::get_command()
-{
-   std::vector<std::string> com_command_line;
-   Base* com;
-   while (index < vect.size()) {
-      if (vect[index] == "&&" || vect[index] == "||" || vect[index] == ";" || vect[index] == ")") {
-         com = new Command(com_command_line);
-         return com;
-      }
-      else {
-         com_command_line.push_back(vect[index]);
-      }
-      index++;
-   }
-   com = new Command(com_command_line);
-   return com;
-}*/
 bool rShell::is_connector(string input) 
 {
 	bool result = false;
@@ -250,4 +200,5 @@ bool rShell::is_connector(string input)
 		result = true;	
 	}
 	return result;
+
 }

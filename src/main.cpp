@@ -8,8 +8,6 @@ using namespace std;
 int main()
 {
   	rShell rShell;
- 	// while(true){
- 	// cout << "$ ";
  	string theinput;
 	while(theinput != "exit")
 	{	
