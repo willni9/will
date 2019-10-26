@@ -1,5 +1,5 @@
-# CS 100 Programming Project 
-## Project Information: CS100 RShell, Jianbin Li, 862074304  Weier Ni,   862019075
+# CS Programming Project 
+## Project Information: CS100 RShell, Jianbin Li, Weier Ni
 
 # Introduction:
 For this program, it should be able to output the command prompt properly, whichis followed by a short description. the project should be able to run the command( fork, execvp, waitpid) properly, project should be able to connect multiple commends by using connectors(||,&&,;) we will be using composite design pattern on this project to combine between unit tests and classes.
